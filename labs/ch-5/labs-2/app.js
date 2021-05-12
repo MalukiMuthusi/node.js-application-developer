@@ -7,7 +7,25 @@ const assert = require('assert')
 // lynx prototype must have ONLY a purr method
 // cat prototype must have ONLY a meow method
 
-const felix = null //TODO replace null with instantiation of a cat
+class Cat {
+    meow() {
+        console.log('meow')
+    }
+}
+
+class Lynx extends Cat {
+    purr() {
+        console.log('purr')
+    }
+}
+
+class Leopard extends Lynx {
+    hiss() {
+        console.log('hiss')
+    }
+}
+
+const felix = new Leopard() //TODO replace null with instantiation of a cat
 felix.meow() // prints Felix the cat: meow
 felix.purr() // prints Felix the cat: prrr
 felix.hiss() // prints Felix the cat: hsss
