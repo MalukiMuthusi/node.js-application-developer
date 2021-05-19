@@ -1,6 +1,6 @@
-const print = (err, contents) => { 
+const print = (err, contents) => {
   if (err) console.error(err)
-  else console.log(contents )
+  else console.log(contents)
 }
 
 const opA = (cb) => {
@@ -20,4 +20,8 @@ const opC = (cb) => {
     cb(null, 'C')
   }, 125)
 }
+
+opA(print)
+opB(print)
+opC(print)
 
