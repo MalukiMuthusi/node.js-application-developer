@@ -1,5 +1,5 @@
 'use strict'
-const { Readable, Writable } = require('stream')
+const { Readable, Writable, pipeline } = require('stream')
 const assert = require('assert')
 const createWritable = () => {
   const sink = []
@@ -26,4 +26,9 @@ const createWritable = () => {
 const readable = Readable.from(['a', 'b', 'c'])
 const writable = createWritable()
 
-// TODO - send all data from readable to writable:
+// pipe the data from readable to the writable
+pipeline(readable, writable, (err) => {
+  if (err) {
+    console.log('error occurred')
+  }
+})
