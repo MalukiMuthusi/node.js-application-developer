@@ -25,6 +25,29 @@ class Leopard extends Lynx {
     }
 }
 
+// implement prototypal inheritance using Object.create
+
+const cat2 = {
+    meow: function () {
+        console.log("meow")
+    }
+}
+
+const lynx2 = Object.create(cat2, {
+    purr: function () {
+        console.log("purr")
+    }
+})
+
+const leopard2 = Object.create(lynx2, {
+    hiss: function () {
+        console.log("hiss")
+    }
+})
+
+const felix2 = Object.create(leopard2, {})
+
+
 const felix = new Leopard() //TODO replace null with instantiation of a cat
 felix.meow() // prints Felix the cat: meow
 felix.purr() // prints Felix the cat: prrr
